@@ -1,0 +1,24 @@
+# Ignore VS Code settings
+.vscode/
+
+# Ignore build artifacts
+/build/
+*.exe
+*.out
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
+
+# Ignore compiled binary logs
+*.log
+
+# Ignore debugging files
+*.dSYM/
+*.pdb
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
