@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include "../include/data_structures/basics/DynamicArray.h"
 
-DynamicArray::DynamicArray(int initialCapacity = 2)
+DynamicArray::DynamicArray(int initialCapacity)
 {
     this->capacity = initialCapacity;
     this->size = 0;

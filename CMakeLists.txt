@@ -23,8 +23,11 @@ target_include_directories(MainExecutable PRIVATE include/)
 # Find all test files in the tests/ directory
 file(GLOB TEST_SOURCES tests/data_structures/basics/*.cpp)
 
+# Find all source files from the src/ directory
+file(GLOB_RECURSE SRC_FILES src/**/*.cpp)
+
 # Add a test executable
-add_executable(AllTests ${TEST_SOURCES})
+add_executable(AllTests ${TEST_SOURCES} ${SRC_FILES})
 
 # Include GoogleTest headers
 target_include_directories(AllTests PRIVATE ${googletest_SOURCE_DIR}/googletest/include)

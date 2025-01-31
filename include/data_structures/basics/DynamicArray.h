@@ -13,7 +13,7 @@ private:
     void resize(); 
 
 public:
-    DynamicArray(int initialCapacity = 2);
+    explicit DynamicArray(int initialCapacity = 2);
     ~DynamicArray();
     DynamicArray(const DynamicArray& other);
     DynamicArray& operator=(const DynamicArray& other);
