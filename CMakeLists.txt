@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.10)  # Specify the minimum CMake version
-project(CppTasks)  # Define the project name
+cmake_minimum_required(VERSION 3.10)
+project(CppTasks)  
 
 # Enable testing in CMake
 enable_testing() 
@@ -20,12 +20,14 @@ target_link_libraries(MainExecutable PRIVATE gtest_main)
 #include directories
 target_include_directories(MainExecutable PRIVATE include/)
 
-
 # Find all test files in the tests/ directory
 file(GLOB TEST_SOURCES tests/data_structures/basics/*.cpp)
 
 # Add a test executable
 add_executable(AllTests ${TEST_SOURCES})
+
+# Include GoogleTest headers
+target_include_directories(AllTests PRIVATE ${googletest_SOURCE_DIR}/googletest/include)
 
 # Include directories for the test executable
 target_include_directories(AllTests PRIVATE include/)
