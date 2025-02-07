@@ -2,18 +2,18 @@
 #define DOUBLY_LINKED_LIST_H
 
 #include <iostream>
-#include "../Node.h"
+#include "../DoublyNode.h"
 
 template <typename T>
-class SinglyLinkedList {
+class DoublyLinkedList {
     private:
-    Node<T>* head;
-    Node<T>* tail;
+    DoublyNode<T>* head;
+    DoublyNode<T>* tail;
     std::size_t count;
 
     public:
-    SinglyLinkedList();
-    ~SinglyLinkedList();
+    DoublyLinkedList();
+    ~DoublyLinkedList();
 
     void addFirst(const T& value);
     void addLast(const T& value);

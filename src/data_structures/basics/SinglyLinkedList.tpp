@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdexcept>
 #include "../include/data_structures/basics/SinglyLinkedList.h"
 #include "../include/data_structures/Node.h"
 
