@@ -93,8 +93,10 @@ bool DoublyLinkedList<T>::contains(const T &value) const
             return true;
         }
 
-        iterator = iteratot->next;
+        iterator = iterator->next;
     }
+
+    return false;
 }
 
 template <typename T>
@@ -111,7 +113,7 @@ void DoublyLinkedList<T>::print() const
     while (iterator)
     {
         std::cout << iterator->data << std::endl;
-        iterator = iteratot->next;
+        iterator = iterator->next;
     }
 }
 

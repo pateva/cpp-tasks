@@ -1,35 +1,35 @@
-#include "../include/data_structures/basics/SinglyLinkedList.h"
-#include "../include/data_structures/Node.h"
+#include "../include/data_structures/basics/DoublyLinkedList.h"
+#include "../include/data_structures/DoublyNode.h"
 #include <gtest/gtest.h>
 
-class SinglyLinkedListTest : public ::testing::Test {
+class DoublyLinkedListTest : public ::testing::Test {
 protected:
-    SinglyLinkedList<int> list;
+    DoublyLinkedList<int> list;
 };
 
-TEST_F(SinglyLinkedListTest, IsEmptyInitially) {
+TEST_F(DoublyLinkedListTest, IsEmptyInitially) {
     EXPECT_TRUE(list.isEmpty());
     EXPECT_EQ(list.size(), 0);
 }
 
-TEST_F(SinglyLinkedListTest, AddFirst) {
+TEST_F(DoublyLinkedListTest, AddFirst) {
     list.addFirst(10);
     EXPECT_FALSE(list.isEmpty());
     EXPECT_EQ(list.size(), 1);
     EXPECT_TRUE(list.contains(10));
 }
 
-TEST_F(SinglyLinkedListTest, AddLast) {
+TEST_F(DoublyLinkedListTest, AddLast) {
     list.addLast(20);
     EXPECT_FALSE(list.isEmpty());
     EXPECT_EQ(list.size(), 1);
     EXPECT_TRUE(list.contains(20));
 }
 
-TEST_F(SinglyLinkedListTest, MultipleInsertions) {
+TEST_F(DoublyLinkedListTest, MultipleInsertions) {
     list.addFirst(10);
     list.addLast(20);
-    list.addFirst(5);  
+    list.addFirst(5); 
 
     EXPECT_EQ(list.size(), 3);
     EXPECT_TRUE(list.contains(5));
@@ -38,7 +38,7 @@ TEST_F(SinglyLinkedListTest, MultipleInsertions) {
     EXPECT_FALSE(list.contains(99));
 }
 
-TEST_F(SinglyLinkedListTest, PopFront) {
+TEST_F(DoublyLinkedListTest, PopFront) {
     list.addLast(10);
     list.addLast(20);
     list.addLast(30);
@@ -54,7 +54,7 @@ TEST_F(SinglyLinkedListTest, PopFront) {
     EXPECT_TRUE(list.isEmpty());
 }
 
-TEST_F(SinglyLinkedListTest, PopBack) {
+TEST_F(DoublyLinkedListTest, PopBack) {
     list.addLast(10);
     list.addLast(20);
     list.addLast(30);

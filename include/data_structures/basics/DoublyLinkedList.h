@@ -25,6 +25,6 @@ class DoublyLinkedList {
     size_t size() const;
 };
 
-#include "../src/data_structures/basics/SinglyLinkedList.tpp"
+#include "../src/data_structures/basics/DoublyLinkedList.tpp"
 
 #endif // DOUBLY_LINKED_LIST_H
