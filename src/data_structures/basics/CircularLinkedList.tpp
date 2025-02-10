@@ -8,27 +8,32 @@ CircularLinkedList<T>::CircularLinkedList() : head(nullptr), tail(nullptr), coun
 template <typename T>
 CircularLinkedList<T>::~CircularLinkedList()
 {
-    Node<T> *current = head;
+    if(head != nullptr) {
+        tail->next = nullptr;
 
-    while (current != nullptr)
-    {
-        Node<T> *temp = current;
-        current = current->next;
-        delete temp;
+        Node<T>* current = head;
+        while (current != nullptr) {
+            Node<T>* temp = current;
+            current = current->next;
+            delete temp;
+        }
     }
 
-    head = tail = nullptr;
+        head = tail = nullptr;
 }
 
 template <typename T>
 void CircularLinkedList<T>::addFirst(const T &value)
 {
     Node<T> *newNode = new Node(value, head);
-    head = newNode;
 
-    if (tail == nullptr)
-    {
-        tail = newNode;
+    if(!head) {
+        head = tail = newNode;
+        newNode->next = newNode;
+    } else {
+        newNode->next = head;
+        head = newNode;
+        tail->next = head;
     }
 
     ++count;
@@ -47,6 +52,7 @@ void CircularLinkedList<T>::addLast(const T &value)
     else
     {
         head = tail = newNode;
+        tail->next = newNode;
     }
 
     ++count;
@@ -58,18 +64,19 @@ void CircularLinkedList<T>::popFront()
     if (head)
     {
         Node<T> *temp = head;
-        head = head->next;
-        delete temp;
-        count--;
 
         if (head == nullptr)
         {
-            tail = nullptr;
+            head = tail = nullptr;
         }
         else
         {
+            head = head->next;
             tail->next = head;
         }
+
+        delete temp;
+        count--;
     }
 }
 
@@ -90,14 +97,13 @@ void CircularLinkedList<T>::popBack()
         return;
     }
 
-    Node<T> *temp = tail;
-
     Node<T> *iterator = head;
-    while (iterator->next == tail)
+    while (iterator->next != tail)
     {
         iterator = iterator->next;
     }
 
+    Node<T> *temp = tail;
     tail = iterator;
     iterator->next = head;
     delete temp;
@@ -109,13 +115,11 @@ bool CircularLinkedList<T>::contains(const T &value) const
 {
     Node<T> *iterator = head;
 
-    while (iterator)
-    {
+    do {
         if (iterator->data == value)
             return true;
-
         iterator = iterator->next;
-    }
+    } while (iterator != head);
 
     return false;
 }
@@ -130,13 +134,11 @@ template <typename T>
 void CircularLinkedList<T>::print() const
 {
 
-    Node<T> *iterator = head;
-
-    while (iterator)
-    {
+   Node<T>* iterator = head;
+    do {
         std::cout << iterator->data << std::endl;
         iterator = iterator->next;
-    }
+    } while (iterator != head);
 }
 
 template <typename T>
