@@ -2,7 +2,7 @@
 #define DOUBLY_LINKED_LIST_H
 
 #include <iostream>
-#include "../DoublyNode.h"
+#include "data_structures/DoublyNode.h"
 
 template <typename T>
 class DoublyLinkedList {
@@ -25,6 +25,6 @@ class DoublyLinkedList {
     size_t size() const;
 };
 
-#include "../src/data_structures/basics/DoublyLinkedList.tpp"
+#include "../src/data_structures/basics/list/DoublyLinkedList.tpp"
 
 #endif // DOUBLY_LINKED_LIST_H

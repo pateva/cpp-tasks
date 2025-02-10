@@ -1,5 +1,5 @@
-#include "../include/data_structures/basics/SinglyLinkedList.h"
-#include "../include/data_structures/Node.h"
+#include "data_structures/basics/list/SinglyLinkedList.h"
+#include "data_structures/Node.h"
 #include <gtest/gtest.h>
 
 class SinglyLinkedListTest : public ::testing::Test {

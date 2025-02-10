@@ -1,4 +1,4 @@
-#include "../include/data_structures/basics/DynamicArray.h"
+#include "data_structures/basics/list/DynamicArray.h"
 #include <gtest/gtest.h>
 
 // Test Constructor

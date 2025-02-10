@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../include/data_structures/basics/CircularLinkedList.h"
-#include "../include/data_structures/Node.h"
+#include "data_structures/basics/list/CircularLinkedList.h"
+#include "data_structures/Node.h"
 
 template <typename T>
 CircularLinkedList<T>::CircularLinkedList() : head(nullptr), tail(nullptr), count(0) {}

@@ -1,5 +1,5 @@
-#include "../include/data_structures/basics/DoublyLinkedList.h"
-#include "../include/data_structures/DoublyNode.h"
+#include "data_structures/basics/list/DoublyLinkedList.h"
+#include "data_structures/DoublyNode.h"
 #include <gtest/gtest.h>
 
 class DoublyLinkedListTest : public ::testing::Test {

@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../include/data_structures/basics/SinglyLinkedList.h"
-#include "../include/data_structures/Node.h"
+#include "data_structures/basics/list/SinglyLinkedList.h"
+#include "data_structures/Node.h"
 
 
 template <typename T>

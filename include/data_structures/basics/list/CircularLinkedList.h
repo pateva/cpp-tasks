@@ -2,7 +2,7 @@
 #define CIRCULAR_LINKED_LIST_H
 
 #include <iostream>
-#include "../Node.h"
+#include "data_structures/Node.h"
 
 template <typename T>
 class CircularLinkedList {
@@ -24,6 +24,6 @@ class CircularLinkedList {
     size_t size() const;
 };
 
-#include "../src/data_structures/basics/CircularLinkedList.tpp" 
+#include "../src/data_structures/basics/list/CircularLinkedList.tpp"
 
 #endif

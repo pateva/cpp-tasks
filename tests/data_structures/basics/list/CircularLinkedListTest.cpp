@@ -1,5 +1,5 @@
-#include "../include/data_structures/basics/CircularLinkedList.h"
-#include "../include/data_structures/Node.h"
+#include "data_structures/basics/list/CircularLinkedList.h"
+#include "data_structures/Node.h"
 #include <gtest/gtest.h>
 
 class CircularLinkedListTest : public ::testing::Test {

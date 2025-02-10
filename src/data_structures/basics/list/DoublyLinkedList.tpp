@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../include/data_structures/basics/DoublyLinkedList.h"
-#include "../include/data_structures/DoublyNode.h"
+#include "data_structures/basics/list/DoublyLinkedList.h"
+#include "data_structures/DoublyNode.h"
 
 template <typename T>
 DoublyLinkedList<T>::DoublyLinkedList() : head(nullptr), tail(nullptr), count(0) {}
