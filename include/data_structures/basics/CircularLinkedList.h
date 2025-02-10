@@ -1,4 +1,4 @@
-#ifndef CIRCLULAR_LINKED_LIST_H
+#ifndef CIRCULAR_LINKED_LIST_H
 #define CIRCULAR_LINKED_LIST_H
 
 #include <iostream>
@@ -23,5 +23,7 @@ class CircularLinkedList {
     void print() const;
     size_t size() const;
 };
+
+#include "../src/data_structures/basics/CircularLinkedList.tpp" 
 
 #endif

@@ -25,7 +25,7 @@ CircularLinkedList<T>::~CircularLinkedList()
 template <typename T>
 void CircularLinkedList<T>::addFirst(const T &value)
 {
-    Node<T> *newNode = new Node(value, head);
+    Node<T> *newNode = new Node<T>(value, head);
 
     if(!head) {
         head = tail = newNode;
@@ -42,7 +42,7 @@ void CircularLinkedList<T>::addFirst(const T &value)
 template <typename T>
 void CircularLinkedList<T>::addLast(const T &value)
 {
-    Node<T> *newNode = new Node(value, head);
+    Node<T> *newNode = new Node<T>(value, head);
 
     if (tail)
     {
