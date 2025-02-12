@@ -6,7 +6,9 @@ template <typename T>
 DoublyLinkedList<T>::DoublyLinkedList() : head(nullptr), tail(nullptr), count(0) {}
 
 template <typename T>
-DoublyLinkedList<T>::~DoublyLinkedList() {}
+DoublyLinkedList<T>::~DoublyLinkedList() {
+    //todo
+}
 
 template <typename T>
 void DoublyLinkedList<T>::addFirst(const T &value)

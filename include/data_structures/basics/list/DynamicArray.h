@@ -14,10 +14,10 @@ private:
     void resize(); 
 
 public:
-    explicit DynamicArray(int initialCapacity = 2);
+    explicit DynamicArray<T>(int initialCapacity = 2);
     ~DynamicArray();
-    DynamicArray(const DynamicArray& other);
-    DynamicArray& operator=(const DynamicArray& other);
+    DynamicArray<T>(const DynamicArray<T>& other);
+    DynamicArray<T>& operator=(const DynamicArray<T>& other);
 
     void push_back(const T& value);
     void pop_back();

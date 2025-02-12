@@ -15,7 +15,7 @@ DynamicArray<T>::DynamicArray(int initialCapacity)
 }
 
 template <typename T>
-DynamicArray<T>::DynamicArray(const DynamicArray &other)
+DynamicArray<T>::DynamicArray(const DynamicArray<T> &other)
 {
     this->capacity = other.capacity;
     this->size = other.size;
@@ -27,7 +27,7 @@ DynamicArray<T>::DynamicArray(const DynamicArray &other)
 }
 
 template <typename T>
-DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray &other)
+DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray<T> &other)
 {
     if (this == &other)
     {
@@ -53,6 +53,7 @@ template <typename T>
 DynamicArray<T>::~DynamicArray()
 {
     delete[] arr;
+    arr = nullptr;
 }
 
 template <typename T>
