@@ -2,21 +2,32 @@
 #include <stdexcept>
 #include "data_structures/basics/list/DynamicArray.h"
 
-DynamicArray::DynamicArray(int initialCapacity)
+template <typename T>
+DynamicArray<T>::DynamicArray(int initialCapacity)
 {
+    if (this->initialCapacity <= 0) {
+        throw std::invalid_argument("Initial capacity must be greater than 0.");
+    }
+
     this->capacity = initialCapacity;
     this->size = 0;
-    this->arr = new int[this->capacity];
+    this->arr = new T[this->capacity];
 }
 
-DynamicArray::DynamicArray(const DynamicArray &other)
+template <typename T>
+DynamicArray<T>::DynamicArray(const DynamicArray &other)
 {
     this->capacity = other.capacity;
     this->size = other.size;
-    this->arr = new int[this->size];
+    this->arr = new T[this->size];
+
+    for (int i = 0; i < this->size; i++) {
+        this->arr[i] = other.arr[i];
+    }
 }
 
-DynamicArray& DynamicArray::operator=(const DynamicArray &other)
+template <typename T>
+DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray &other)
 {
     if (this == &other)
     {
@@ -28,7 +39,7 @@ DynamicArray& DynamicArray::operator=(const DynamicArray &other)
         delete[] arr;
     }
 
-    arr = new int[other.size];
+    arr = new T[other.size];
 
     for (int i = 0; i < other.size; i++)
     {
@@ -38,15 +49,17 @@ DynamicArray& DynamicArray::operator=(const DynamicArray &other)
     return *this;
 }
 
-DynamicArray::~DynamicArray()
+template <typename T>
+DynamicArray<T>::~DynamicArray()
 {
     delete[] arr;
 }
 
-void DynamicArray::resize()
+template <typename T>
+void DynamicArray<T>::resize()
 {
     int newCapacity = this->capacity * 2;
-    int *newArr = new int[newCapacity];
+    int *newArr = new T[newCapacity];
 
     for (int i = 0; i < this->size; i++)
     {
@@ -58,19 +71,19 @@ void DynamicArray::resize()
     this->capacity = newCapacity;
 }
 
-// insert element at the end
-void DynamicArray::push_back(int value)
+template <typename T>
+void DynamicArray<T>::push_back(const T& value)
 {
     if (this->size == this->capacity)
     {
         this->resize();
     }
 
-    this->arr[size++] = value;
+    this->arr[this->size++] = value;
 }
 
-// remove the last element
-void DynamicArray::pop_back()
+template <typename T>
+void DynamicArray<T>::pop_back()
 {
     if (size > 0)
     {
@@ -82,8 +95,8 @@ void DynamicArray::pop_back()
     }
 }
 
-// get element at a given index
-int DynamicArray::get(int index) const
+template <typename T>
+T& DynamicArray<T>::get(int index) const
 {
     if (index < 0 || index >= size)
     {
@@ -93,8 +106,8 @@ int DynamicArray::get(int index) const
     return this->arr[index];
 }
 
-// set element at a given index
-void DynamicArray::set(int index, int value)
+template <typename T>
+void DynamicArray<T>::set(int index, const T& value)
 {
     if (index < 0 || index >= size)
     {
@@ -104,18 +117,20 @@ void DynamicArray::set(int index, int value)
     this->arr[index] = value;
 }
 
-int DynamicArray::getSize() const
+template <typename T>
+int DynamicArray<T>::getSize() const
 {
     return this->size;
 }
 
-int DynamicArray::getCapacity() const
+template <typename T>
+int DynamicArray<T>::getCapacity() const
 {
     return this->capacity;
 }
 
-// print all elements
-void DynamicArray::print() const
+template <typename T>
+void DynamicArray<T>::print() const
 {
     for (size_t i = 0; i < this->size; i++)
     {

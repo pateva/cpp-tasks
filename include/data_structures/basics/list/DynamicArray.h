@@ -4,9 +4,10 @@
 #include <iostream>
 #include <stdexcept>
 
+template <typename T>
 class DynamicArray {
 private:
-    int* arr;
+    T* arr;
     int size;
     int capacity;
 
@@ -18,13 +19,15 @@ public:
     DynamicArray(const DynamicArray& other);
     DynamicArray& operator=(const DynamicArray& other);
 
-    void push_back(int value);
+    void push_back(const T& value);
     void pop_back();
-    int get(int index) const;
-    void set(int index, int value);
+    T& get(int index) const;
+    void set(int index, const T& value);
     int getSize() const;
     int getCapacity() const;
     void print() const;
 };
+
+#include "../src/data_structures/basics/list/DynamicArray.tpp"
 
 #endif // DYNAMIC_ARRAY_H
