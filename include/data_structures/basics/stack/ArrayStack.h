@@ -2,7 +2,7 @@
 #define ARRAY_STACK_H
 
 #include <iostream>
-#include "DynamicArray.h"
+#include "data_structures/basics/list/DynamicArray.h"
 
 template <typename T>
 class ArrayStack {

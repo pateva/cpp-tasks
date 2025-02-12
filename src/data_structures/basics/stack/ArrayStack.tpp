@@ -15,8 +15,8 @@ ArrayStack<T>::ArrayStack(int initialCapacity) {
 
 template <typename T>
 ArrayStack<T>::ArrayStack(const ArrayStack<T> &other) {
-    this->arr = new DynamicArray(*other->arr);
-    this->topIndex = arr.getSize()-1;
+    this->arr = new DynamicArray<T>(*other.arr);
+    this->topIndex = arr->getSize()-1;
 }
 
 template <typename T>
@@ -35,7 +35,7 @@ ArrayStack<T>& ArrayStack<T>::operator= (const ArrayStack<T> &other) {
         delete arr;
     }
 
-    this->arr = new DynamicArray<T>(*other->arr);
+    this->arr = new DynamicArray<T>(*other.arr);
     this->topIndex = other->topIndex;
 
     return *this;
@@ -43,7 +43,7 @@ ArrayStack<T>& ArrayStack<T>::operator= (const ArrayStack<T> &other) {
 
 template <typename T>
 void ArrayStack<T>::push(const T &value) {
-    this->arr.push_back(value);
+    this->arr->push_back(value);
     this->topIndex++;
 }
 
@@ -53,7 +53,7 @@ void ArrayStack<T>::pop() {
        throw std::invalid_argument("Stack is empty");
     }
 
-    this->arr.pop_back();
+    this->arr->pop_back();
     this->topIndex--;
 }
 
@@ -63,7 +63,7 @@ T& ArrayStack<T>::top() const {
         throw std::invalid_argument("Array is empty");
     }
 
-    return this->arr.get(this->topIndex);
+    return this->arr->get(this->topIndex);
 }
 
 template <typename T>

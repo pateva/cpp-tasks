@@ -5,7 +5,7 @@
 template <typename T>
 DynamicArray<T>::DynamicArray(int initialCapacity)
 {
-    if (this->initialCapacity <= 0) {
+    if (initialCapacity <= 0) {
         throw std::invalid_argument("Initial capacity must be greater than 0.");
     }
 
