@@ -7,12 +7,36 @@ template <typename T>
 SinglyLinkedList<T>::SinglyLinkedList() : head(nullptr), tail(nullptr), count(0) {}
 
 template <typename T>
+SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList<T>& other) {
+    if(other->head == nullptr) {
+        this->head = this->tail = nullptr;
+        count = 0;
+        return;
+    }
+
+    this->head = new Node<T>(other.head->data);
+    count = 1;
+
+    Node<T>* currentOther = other.head->next;
+    Node<T>* current = head;
+
+    while(currentOther != nullptr) {
+        Node<T>* newNode = new Node<T>(currentOther->data);
+        current->next = newNode;
+        count++;
+        currentOther = currentOther->next;
+    }
+
+    this->tail = current;
+}
+
+template <typename T>
 SinglyLinkedList<T>::~SinglyLinkedList()
 {
     while(head!= nullptr) {
         Node<T> *temp = head;
         head = head->next;
-        delete current;
+        delete temp;
     }
 
     tail = nullptr;

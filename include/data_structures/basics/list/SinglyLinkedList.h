@@ -13,6 +13,7 @@ class SinglyLinkedList {
 
     public:
     SinglyLinkedList();
+    SinglyLinkedList(const SinglyLinkedList<T>& other);
     ~SinglyLinkedList();
 
     void addFirst(const T& value);
