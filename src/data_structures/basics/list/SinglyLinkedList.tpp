@@ -9,7 +9,14 @@ SinglyLinkedList<T>::SinglyLinkedList() : head(nullptr), tail(nullptr), count(0)
 template <typename T>
 SinglyLinkedList<T>::~SinglyLinkedList()
 {
-    // TODO implement
+    while(head!= nullptr) {
+        Node<T> *temp = head;
+        head = head->next;
+        delete current;
+    }
+
+    tail = nullptr;
+    count = 0;
 }
 
 template <typename T>
