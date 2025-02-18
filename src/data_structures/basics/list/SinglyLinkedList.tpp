@@ -8,13 +8,13 @@ SinglyLinkedList<T>::SinglyLinkedList() : head(nullptr), tail(nullptr), count(0)
 
 template <typename T>
 SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList<T>& other) {
-    if(other->head == nullptr) {
+    if(other.head == nullptr) {
         this->head = this->tail = nullptr;
         count = 0;
         return;
     }
 
-    this->head = new Node<T>(other.head->data);
+    this->head = new Node<T>(other.head->data, nullptr);
     count = 1;
 
     Node<T>* currentOther = other.head->next;
@@ -154,4 +154,9 @@ void SinglyLinkedList<T>::print() const {
 template <typename T>
 size_t SinglyLinkedList<T>::size() const {
    return count;
+}
+
+template <typename T>
+T& SinglyLinkedList<T>::getLast() const {
+    return head->data;
 }

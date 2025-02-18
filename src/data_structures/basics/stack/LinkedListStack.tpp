@@ -5,7 +5,7 @@
 template <typename T>
 LinkedListStack<T>::LinkedListStack()
 {
-    this->list = new SinglyLinkedList();
+    this->list = new SinglyLinkedList<T>();
     this->topIndex = -1;
 }
 
@@ -13,8 +13,8 @@ template <typename T>
 LinkedListStack<T>::LinkedListStack(const LinkedListStack<T> &other)
 {
 
-    this->list = new SinglyLinkedList(*other.list);
-    this->topIndex = other.count - 1;
+    this->list = new SinglyLinkedList<T>(*other.list);
+    this->topIndex = other.topIndex + 1;
 }
 
 template <typename T>
@@ -36,7 +36,7 @@ LinkedListStack<T> &LinkedListStack<T>::operator=(const LinkedListStack<T> &othe
     delete this->list;
 
     if(other.list != nullptr) {
-    this->list = new SinglyLinkedList(*other.list);
+    this->list = new SinglyLinkedList<T>(*other.list);
     } else {
         this->list = nullptr;
     }
@@ -49,25 +49,25 @@ LinkedListStack<T> &LinkedListStack<T>::operator=(const LinkedListStack<T> &othe
 template <typename T>
 void LinkedListStack<T>::push(const T &value)
 {
-    this->list.addLast(value);
+    this->list->addLast(value);
     this->topIndex++;
 }
 
 template <typename T>
 void LinkedListStack<T>::pop()
 {
-    this->list.popBack();
+    this->list->popBack();
     this->topIndex--;
 }
 
 template <typename T>
-T &LinkedListStack<T>::top() const
+T& LinkedListStack<T>::top() const
 {
     if(this->topIndex < 0) {
         throw std::invalid_argument("Stack is empty");
     }
 
-    return this->list.get(this->topIndex);
+    return this->list->getLast();
 }
 
 template <typename T>

@@ -24,6 +24,7 @@ class SinglyLinkedList {
     bool isEmpty() const;
     void print() const;
     size_t size() const;
+    T& getLast() const;
 };
 
 #include "../src/data_structures/basics/list/SinglyLinkedList.tpp"
