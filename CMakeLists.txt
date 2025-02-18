@@ -21,7 +21,7 @@ target_link_libraries(MainExecutable PRIVATE gtest_main)
 target_include_directories(MainExecutable PRIVATE include/)
 
 # Find all test files in the tests/ directory
-file(GLOB TEST_SOURCES tests/data_structures/basics/**/*.cpp)
+file(GLOB_RECURSE TEST_SOURCES "${CMAKE_SOURCE_DIR}/tests/**/*.cpp")
 
 # Find all source files from the src/ directory
 file(GLOB_RECURSE SRC_FILES src/**/*.cpp)

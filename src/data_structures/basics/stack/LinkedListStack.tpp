@@ -14,7 +14,7 @@ LinkedListStack<T>::LinkedListStack(const LinkedListStack<T> &other)
 {
 
     this->list = new SinglyLinkedList<T>(*other.list);
-    this->topIndex = other.topIndex + 1;
+    this->topIndex = other.topIndex;
 }
 
 template <typename T>

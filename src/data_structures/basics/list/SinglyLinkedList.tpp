@@ -23,6 +23,7 @@ SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList<T>& other) {
     while(currentOther != nullptr) {
         Node<T>* newNode = new Node<T>(currentOther->data);
         current->next = newNode;
+        current = current->next;
         count++;
         currentOther = currentOther->next;
     }
@@ -158,5 +159,5 @@ size_t SinglyLinkedList<T>::size() const {
 
 template <typename T>
 T& SinglyLinkedList<T>::getLast() const {
-    return head->data;
+    return tail->data;
 }
