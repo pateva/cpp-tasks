@@ -61,3 +61,33 @@ TEST(InsertionSortTest, EmptyVector) {
     insertionSort(input);
     EXPECT_TRUE(input.empty());
 }
+
+TEST(SelectionSortTest, SortIntegers) {
+    std::vector<int> input{5, 3, 1, 4, 2};
+    std::vector<int> expected{1, 2, 3, 4, 5};
+
+    selectionSort(input);
+    EXPECT_EQ(input, expected);
+}
+
+TEST(SelectionSortTest, AlreadySorted) {
+    std::vector<int> input{1, 2, 3, 4, 5};
+    std::vector<int> expected{1, 2, 3, 4, 5};
+
+    selectionSort(input);
+    EXPECT_EQ(input, expected);
+}
+
+TEST(SelectionSortTest, SingleElement) {
+    std::vector<int> input{42};
+    std::vector<int> expected{42};
+
+    selectionSort(input);
+    EXPECT_EQ(input, expected);
+}
+
+TEST(SelectionSortTest, EmptyVector) {
+    std::vector<int> input;
+    selectionSort(input);
+    EXPECT_TRUE(input.empty());
+}
