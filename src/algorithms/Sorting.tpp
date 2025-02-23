@@ -3,11 +3,69 @@
 
 using namespace std;
 
+namespace helper
+{
+    template <typename T>
+    void merge(vector<T> &v, size_t start, size_t mid, size_t end)
+    {
+        size_t n1 = mid - start + 1;
+        size_t n2 = end - mid;
+        vector<T> L(n1), R(n2);
+
+        for (size_t i = 0; i < n1; i++)
+        {
+            L[i] = v[start + i];
+        }
+
+        for (size_t i = 0; i < n2; i++)
+        {
+            R[i] = v[mid + i + 1];
+        }
+
+        size_t i = 0, j = 0;
+        size_t k = start;
+
+        while (i < n1 && j < n2)
+        {
+            if (L[i] < R[j])
+            {
+                v[k++] = L[i++];
+            }
+            else
+            {
+                v[k++] = R[j++];
+            }
+        }
+
+        while (i < n1)
+        {
+            v[k++] = L[i++];
+        }
+
+        while (j < n2)
+        {
+            v[k++] = R[j++];
+        }
+    }
+
+    template <typename T>
+    void print(const vector<T> &v, const string &str)
+    {
+        cout << str << endl;
+
+        if (v.size() > 1)
+        {
+            for (auto i : v)
+                cout << i << " ";
+        }
+    }
+}
+
 template <typename T>
 void bubbleSort(vector<T> &v)
 {
     size_t sz = v.size();
-    print(v, "Before sorting:");
+    helper::print(v, "Before sorting:");
 
     for (size_t i = 0; i < sz; i++)
     {
@@ -25,14 +83,14 @@ void bubbleSort(vector<T> &v)
             break;
     }
 
-    print(v, "After sorting:");
+    helper::print(v, "After sorting:");
 }
 
 template <typename T>
 void insertionSort(vector<T> &v)
 {
     size_t sz = v.size();
-    print(v, "Before sorting:");
+    helper::print(v, "Before sorting:");
 
     for (size_t i = 1; i < sz; i++)
     {
@@ -48,7 +106,7 @@ void insertionSort(vector<T> &v)
         v[j + 1] = key;
     }
 
-    print(v, "After sorting:");
+    helper::print(v, "After sorting:");
 }
 
 template <typename T>
@@ -56,11 +114,12 @@ void selectionSort(std::vector<T> &v)
 {
     size_t sz = v.size();
 
-    if( sz < 2) {
-        return; 
+    if (sz < 2)
+    {
+        return;
     }
-    
-    print(v, "Before sorting:");
+
+    helper::print(v, "Before sorting:");
 
     for (size_t i = 0; i < sz - 1; i++)
     {
@@ -77,17 +136,18 @@ void selectionSort(std::vector<T> &v)
         swap(v.at(i), v.at(sm));
     }
 
-    print(v, "Before sorting:");
+    helper::print(v, "Before sorting:");
 }
 
 template <typename T>
-void print(const vector<T> &v, const string &str)
+void mergeSort(vector<T> &v, size_t start, size_t end)
 {
-    cout << str << endl;
-
-    if (v.size() > 1)
-    {
-        for (auto i : v)
-            cout << i << " ";
+    if (v.empty() || start >= end) {
+        return;
     }
+
+    size_t mid = start + (end - start) / 2;
+    mergeSort(v, start, mid);
+    mergeSort(v, mid + 1, end);
+    helper::merge(v, start, mid, end);
 }

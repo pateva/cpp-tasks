@@ -91,3 +91,33 @@ TEST(SelectionSortTest, EmptyVector) {
     selectionSort(input);
     EXPECT_TRUE(input.empty());
 }
+
+TEST(MergeSortTest, SortIntegers) {
+    std::vector<int> input{5, 3, 1, 4, 2};
+    std::vector<int> expected{1, 2, 3, 4, 5};
+
+    mergeSort(input, 0, input.size()-1);
+    EXPECT_EQ(input, expected);
+}
+
+TEST(MergeSortTest, AlreadySorted) {
+    std::vector<int> input{1, 2, 3, 4, 5};
+    std::vector<int> expected{1, 2, 3, 4, 5};
+
+    mergeSort(input, 0, input.size()-1);
+    EXPECT_EQ(input, expected);
+}
+
+TEST(MergeSortTest, SingleElement) {
+    std::vector<int> input{42};
+    std::vector<int> expected{42};
+
+    mergeSort(input, 0, input.size()-1);
+    EXPECT_EQ(input, expected);
+}
+
+TEST(MergeSortTest, EmptyVector) {
+    std::vector<int> input;
+    mergeSort(input, 0, input.size()-1);
+    EXPECT_TRUE(input.empty());
+}
